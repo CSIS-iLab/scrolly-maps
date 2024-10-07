@@ -1,0 +1,76 @@
+/* Specific styles for the info-icon and tooltip within the .text class */
+@import url("https://use.typekit.net/hjr4awy.css");
+
+.text .info-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.info-icon-link {
+  color: #a8dbff;
+}
+
+#data {
+  color: #0074C2;
+}
+
+.text .info-icon::after {
+  content: "i";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #A7ADB4;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+
+.text .tooltip-text {
+  visibility: hidden;
+  background-color: #fcfcfc;
+  color: #333;
+  line-height: 1.2;
+  font-size: 1rem;
+  font-family: "Utopia", serif;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px;
+
+  /* Positioning */
+  position: absolute;
+  z-index: 10;
+  bottom: 125%; /* Adjust if necessary */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  /* Allow text wrapping */
+  white-space: normal;
+  overflow-wrap: break-word;
+  min-width: 250px;
+  text-align: left;
+}
+
+.text .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Adjust if necessary */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fcfcfc transparent transparent transparent;
+}
+
+/* Show tooltip text on hover */
+.text .info-icon:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Jost", sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+a,
+a:hover,
+a:visited {
+  color: #a8dbff; /* for a11y with textbox background color */
+}
+
+#map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* div that holds chapters */
+#features {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+/* ----------- config chapter.alignment options ----------- */
+.hidden {
+  visibility: hidden;
+}
+
+.centered,
+.righty {
+  width: 90vw;
+  margin: 0 auto; 
+}
+
+/* -------------------- config.theme -------------------- */
+.dark {
+  color: #fff;
+  background-color: RGBA(25, 68, 88, 0.9); /*194458*/
+}
+
+/* -------- `step` is a class on each chapter div ------- */
+.step {
+  padding-bottom: 50vh;
+  opacity: 0.25;
+}
+
+.step.active {
+  opacity: 0.9;
+}
+
+.step div {
+  margin: 0 auto;
+  padding: 20px 40px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.step div > p {
+  margin: 0;
+}
+
+.step img {
+  width: 100%;
+}
+
+/* --- Fix issue on mobile browser where scroll breaks -- */
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan
+  .mapboxgl-canvas {
+  touch-action: unset;
+}
+
+/*-- special treatment for legend in ch8 --*/
+.missileBrigades {
+  display: none;
+}
+
+/* ------------------------------------------------------ */
+/*   media queries for textboxes - values from Shorthand  */
+/* ------------------------------------------------------ */
+/* Shorthand breakpoints: https://support.shorthand.com/en/articles/54-responsive-breakpoints */
+
+/* Extra small devices (XS, less than 620px) - default styles will apply */
+
+/* Small devices (Small, 620px and up) */
+@media (min-width: 620px) {
+  .righty {
+    width: 33vw;
+    margin-left: 61vw;
+  }
+  
+  .missileBrigades {
+    display: inline;
+  }
+}
+
+/* Medium devices (Medium, 900px and up) */
+@media (min-width: 900px) {
+  .centered {
+    width: 50vw;
+    margin: 0 auto;
+  }
+
+  .righty {
+    margin-left: 58vw;
+  }
+
+  .step div {
+    font-size: 1.25rem;
+  }
+}
+
+/* Large devices (Large, 1100px and up) */
+@media (min-width: 1100px) {
+  .righty {
+    margin-left: 61vw;
+  }
+}
+
+/* Extra large devices (XL, 1400px and up) */
+@media (min-width: 1400px) {
+}
+
+/* Extra extra large devices (XXL, 1750px and up) */
+@media (min-width: 1750px) {
+}
+
+/* ------------------------------------------------------ */
+/*                    Begin Markers                       */
+/* ------------------------------------------------------ */
+/* ---------- fade in styles for gifs ---------- */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply fadeIn animation */
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.missile-strike-1-gif {
+  background-image: url("assets/missile-strike-1.gif");
+  background-size: cover;
+  width: 70px;
+  height: 80px;
+}
+
+.missile-strike-2-gif {
+  background-image: url("assets/missile-strike-2.gif");
+  background-size: cover;
+  width: 85px;
+  height: 85px;
+}
+
+.missile-strike-3-gif {
+  background-image: url("assets/missile-strike-3.gif");
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+}
+
+/* ------------------------------------------------------ */
+/*             media queries for markers/gifs             */
+/* ------------------------------------------------------ */
+
+/* Extra small devices (XS, less than 620px) - default styles will apply */
+
+/* Small devices (Small, 620px and up) */
+@media (min-width: 620px) {
+}
+
+/* Medium devices (Medium, 900px and up) */
+@media (min-width: 900px) {
+  .missile-strike-1-gif {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .missile-strike-2-gif {
+    width: 135px;
+    height: 135px;
+  }
+  
+  .missile-strike-3-gif {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* Large devices (Large, 1100px and up) */
+@media (min-width: 1100px) {
+}
+
+/* Extra large devices (XL, 1400px and up) */
+@media (min-width: 1400px) {
+}
+
+/* Extra extra large devices (XXL, 1750px and up) */
+@media (min-width: 1750px) {
+}
+
+/* ------------------------------------------------------ */
+/*                        SHIPS KEYS                       */
+/* ------------------------------------------------------ */
+.coast-guard-circle {
+  padding-right: 8px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.maritime-circle {
+  padding-right: 8px;
+  color: #5cb1e6;
+  font-size: 24px;
+}
+
+.pla-circle {
+  padding-right: 8px;
+  color: #f75d55;
+  font-size: 24px;
+}
+
+.aircraft-carrier-circle {
+  padding-right: 8px;
+  color: #f75d55;
+  font-size: 24px;
+}
+
+.missile-brigade-circle {
+  padding-right: 8px;
+  color: #f236a4;
+  font-size: 24px;
+}
+
+.pla-coastal-and-air-defense-circle {
+  padding-right: 8px;
+  color: #d848f4;
+  font-size: 24px;
+}
