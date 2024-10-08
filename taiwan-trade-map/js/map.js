@@ -297,54 +297,6 @@ map.on("load", () => {
   startLineAnimation();
 });
 
-//ADDING THE START POLYGON
-
-function addTaiwanStraitPolygon() {
-  // Add a data source containing GeoJSON data.
-  map.addSource("taiwanStrait", {
-    type: "geojson",
-    data: {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
-            [119.7732, 25.8095], // Correct order: [longitude, latitude]
-            [121.0269, 25.0782],
-            [119.9757, 23.5835],
-            [118.5919, 24.4556],
-            [119.7732, 25.8095], // Close the polygon (last point equals first)
-          ],
-        ],
-      },
-    },
-  });
-
-  // Add a new layer to visualize the polygon.
-  map.addLayer({
-    id: "taiwanStrait",
-    type: "fill",
-    source: "taiwanStrait", // reference the data source
-    layout: {},
-    paint: {
-      "fill-color": "#68f7a3", // teal color fill
-      "fill-opacity": 0.2,
-    },
-  });
-
-  // Add a teal outline around the polygon.
-  map.addLayer({
-    id: "outline",
-    type: "line",
-    source: "taiwanStrait",
-    layout: {},
-    paint: {
-      "line-color": "#68f7a3",
-      "line-width": 3,
-    },
-  });
-}
-
 //REMOVING THE START POLYGON
 
 function removeTaiwanStraitPolygon() {
