@@ -11,8 +11,6 @@ var config = {
   auto: false,
   title: "How much Trade Transit the Taiwan Strait?",
   alignment: "right",
-  subtitle: "",
-  byline: "",
   chapters: [
     {
       id: "first-chapter",

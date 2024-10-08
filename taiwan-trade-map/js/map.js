@@ -46,18 +46,6 @@ if (config.title) {
   header.appendChild(titleText);
 }
 
-if (config.subtitle) {
-  var subtitleText = document.createElement("h2");
-  subtitleText.innerText = config.subtitle;
-  header.appendChild(subtitleText);
-}
-
-if (config.byline) {
-  var bylineText = document.createElement("p");
-  bylineText.innerText = config.byline;
-  header.appendChild(bylineText);
-}
-
 if (header.innerText.length > 0) {
   header.classList.add(config.theme);
   header.setAttribute("id", "header");
