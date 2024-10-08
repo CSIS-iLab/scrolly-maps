@@ -7,11 +7,6 @@ body {
   font-family: "Source Sans 3", sans-serif;
   font-size: 1.1em;
 }
-a,
-a:hover,
-a:visited {
-  color: #0071bc;
-}
 #map {
   top: 0;
   height: 100vh;
