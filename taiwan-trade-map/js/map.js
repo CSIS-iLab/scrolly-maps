@@ -1,3 +1,5 @@
+mapboxgl.accessToken = config.accessToken;
+
 // Sets the title text - using config.js doesn't allow using a span in the text, which we need to change the color of 'Taiwan Strait'. Need to wrap in the event listener to ensure the DOM is loaded before changing the text, otherwise the text will be undefined and this won't work.
 document.addEventListener("DOMContentLoaded", function () {
   const headerTitle = document.querySelector("#header h1");
@@ -42,23 +44,26 @@ function setLayerOpacity(layer) {
 }
 
 var story = document.getElementById("story");
-var features = document.createElement("div");
-features.setAttribute("id", "features");
 
+// Title
 var header = document.createElement("div");
-
 if (config.title) {
   var titleText = document.createElement("h1");
   titleText.innerText = config.title;
   header.appendChild(titleText);
 }
-
 if (header.innerText.length > 0) {
   header.classList.add(config.theme);
   header.setAttribute("id", "header");
   story.appendChild(header);
 }
 
+// Rest of story 
+var features = document.createElement("div");
+features.setAttribute("id", "features");
+story.appendChild(features);
+
+// config for future refactor - from blockade maps
 config.chapters.forEach((record, idx) => {
   var container = document.createElement("div");
   var chapter = document.createElement("div");
@@ -96,10 +101,6 @@ config.chapters.forEach((record, idx) => {
   features.appendChild(container);
 });
 
-story.appendChild(features);
-
-mapboxgl.accessToken = config.accessToken;
-
 const transformRequest = (url) => {
   const hasQuery = url.indexOf("?") !== -1;
   const suffix = hasQuery
@@ -122,8 +123,13 @@ var map = new mapboxgl.Map({
   projection: config.projection,
 });
 
-// instantiate the scrollama
+/* ------------------------------------------------------ */
+/*      Scrolly part of map - enter and exit behavior     */
+/* ------------------------------------------------------ */
 var scroller = scrollama();
+// used to keep it from exiting/entering chapters out of order
+var lastEnteredChapter = null;
+var lastExitedChapter = null;
 
 map.on("load", function () {
   scroller
@@ -138,14 +144,30 @@ map.on("load", function () {
       );
       var chapter = config.chapters[current_chapter];
 
-      response.element.classList.add("active");
-      map[chapter.mapAnimation || "flyTo"](chapter.location);
+      // Prevent entering the same chapter multiple times
+      if (lastEnteredChapter !== chapter.id) {
+        // Exiting the last chapter before entering the new one
+        if (lastEnteredChapter !== null) {
+          var lastChapterIndex = config.chapters.findIndex(
+            (chap) => chap.id === lastEnteredChapter
+          );
+          var lastChapter = config.chapters[lastChapterIndex];
+          if (lastChapter.onChapterExit.length > 0) {
+            lastChapter.onChapterExit.forEach(setLayerOpacity);
+          }
+          document.getElementById(lastChapter.id).classList.remove("active");
+          lastExitedChapter = lastChapter.id;
+        }
+        lastEnteredChapter = chapter.id;
+        response.element.classList.add("active");
+        map[chapter.mapAnimation || "flyTo"](chapter.location);
 
-      if (chapter.onChapterEnter.length > 0) {
-        chapter.onChapterEnter.forEach(setLayerOpacity);
-      }
-      if (chapter.callback) {
-        window[chapter.callback]();
+        if (chapter.onChapterEnter.length > 0) {
+          chapter.onChapterEnter.forEach(setLayerOpacity);
+        }
+        if (chapter.callback) {
+          window[chapter.callback]();
+        }
       }
     })
     .onStepExit((response) => {
