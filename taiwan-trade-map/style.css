@@ -5,7 +5,7 @@ body {
   background-color: #0d3d4d;
   text-align: center;
   font-family: "Source Sans 3", sans-serif;
-  font-size: 1.1em;
+  font-size: 1.129em;
 }
 #map {
   top: 0;
@@ -37,9 +37,6 @@ body {
   padding: 2vh 2vw;
   margin-top: 35vh;
   text-align: center;
-}
-p {
-  font-size: 1.5em;
 }
 #features {
   padding-top: 10vh;
@@ -80,7 +77,6 @@ p {
 .step div {
   padding: 25px 50px;
   line-height: 25px;
-  font-size: 13px;
 }
 
 .step img {
