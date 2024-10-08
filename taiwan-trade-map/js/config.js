@@ -5,11 +5,9 @@ var config = {
   showMarkers: true,
   markerColor: "#3FB1CE",
   projection: "globe",
-  //Read more about available projections here
-  //https://docs.mapbox.com/mapbox-gl-js/example/projections/
   inset: false,
   theme: "dark",
-  use3dTerrain: true, //set true for enabling 3D maps.
+  use3dTerrain: true,
   auto: false,
   title: "How much Trade Transit the Taiwan Strait?",
   alignment: "right",
@@ -60,12 +58,7 @@ var config = {
         zoom: 2.5,
         pitch: 0,
         bearing: 0,
-        // flyTo additional controls-
-        // These options control the flight curve, making it move
-        // slowly and zoom out almost completely before starting
-        // to pan.
-        speed: 1, // make the flying slow
-        //curve: 1, // change the speed at which it zooms out
+        speed: 1,
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
