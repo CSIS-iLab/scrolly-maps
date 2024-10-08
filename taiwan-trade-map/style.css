@@ -76,11 +76,6 @@ p {
   width: 100%;
   margin: auto;
 }
-.light {
-  color: #444;
-  background-color: #0d3d4d;
-  border-radius: 25px;
-}
 .dark {
   color: #fafafa;
   background-color: #0d3d4d;
