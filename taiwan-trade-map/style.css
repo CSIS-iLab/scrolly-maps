@@ -41,18 +41,6 @@ body {
 p {
   font-size: 1.5em;
 }
-#footer {
-  width: 100%;
-  min-height: 5vh;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  text-align: center;
-  line-height: 25px;
-  font-size: 13px;
-  position: relative;
-  z-index: 5;
-  display: none;
-}
 #features {
   padding-top: 10vh;
   padding-bottom: 10vh;

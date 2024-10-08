@@ -158,20 +158,6 @@ config.chapters.forEach((record, idx) => {
 
 story.appendChild(features);
 
-var footer = document.createElement("div");
-
-if (config.footer) {
-  var footerText = document.createElement("p");
-  footerText.innerHTML = config.footer;
-  footer.appendChild(footerText);
-}
-
-if (footer.innerText.length > 0) {
-  footer.classList.add(config.theme);
-  footer.setAttribute("id", "footer");
-  story.appendChild(footer);
-}
-
 mapboxgl.accessToken = config.accessToken;
 
 const transformRequest = (url) => {
