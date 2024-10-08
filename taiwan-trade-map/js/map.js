@@ -196,23 +196,6 @@ var map = new mapboxgl.Map({
   projection: config.projection,
 });
 
-// Create a inset map if enabled in config.js
-if (config.inset) {
-  var insetMap = new mapboxgl.Map({
-    container: "mapInset", // container id
-    style: "mapbox://styles/mapbox/dark-v10", //hosted style id
-    center: config.chapters[0].location.center,
-    // Hardcode above center value if you want insetMap to be static.
-    zoom: 3, // starting zoom
-    hash: false,
-    interactive: false,
-    attributionControl: false,
-    //Future: Once official mapbox-gl-js has globe view enabled,
-    //insetmap can be a globe with the following parameter.
-    //projection: 'globe'
-  });
-}
-
 if (config.showMarkers) {
   var marker = new mapboxgl.Marker({ color: config.markerColor });
   marker.setLngLat(config.chapters[0].location.center).addTo(map);
@@ -477,10 +460,6 @@ map.on("load", function () {
     });
   }
 
-  // As the map moves, grab and update bounds in inset map.
-  if (config.inset) {
-    map.on("move", getInsetBounds);
-  }
   // setup the instance, pass callback functions
   scroller
     .setup({
@@ -497,16 +476,6 @@ map.on("load", function () {
       response.element.classList.add("active");
       map[chapter.mapAnimation || "flyTo"](chapter.location);
 
-      // Incase you do not want to have a dynamic inset map,
-      // rather want to keep it a static view but still change the
-      // bbox as main map move: comment out the below if section.
-      if (config.inset) {
-        if (chapter.location.zoom < 5) {
-          insetMap.flyTo({ center: chapter.location.center, zoom: 0 });
-        } else {
-          insetMap.flyTo({ center: chapter.location.center, zoom: 3 });
-        }
-      }
       if (config.showMarkers) {
         marker.setLngLat(chapter.location.center);
       }
@@ -552,40 +521,6 @@ map.on("load", function () {
     document.querySelectorAll('[data-scrollama-index="0"]')[0].scrollIntoView();
   }
 });
-
-//Helper functions for insetmap
-function getInsetBounds() {
-  let bounds = map.getBounds();
-
-  let boundsJson = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        properties: {},
-        geometry: {
-          type: "Polygon",
-          coordinates: [
-            [
-              [bounds._sw.lng, bounds._sw.lat],
-              [bounds._ne.lng, bounds._sw.lat],
-              [bounds._ne.lng, bounds._ne.lat],
-              [bounds._sw.lng, bounds._ne.lat],
-              [bounds._sw.lng, bounds._sw.lat],
-            ],
-          ],
-        },
-      },
-    ],
-  };
-
-  if (initLoad) {
-    addInsetLayer(boundsJson);
-    initLoad = false;
-  } else {
-    updateInsetLayer(boundsJson);
-  }
-}
 
 //SPIN GLOBE
 
