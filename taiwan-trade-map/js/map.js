@@ -124,8 +124,8 @@ if (config.showMarkers) {
 // instantiate the scrollama
 var scroller = scrollama();
 
+// referenced as callback in third-chapter
 function addTaiwanStraitPolygon() {
-  // Add a data source containing GeoJSON data.
   map.addSource("taiwanStrait", {
     type: "geojson",
     data: {
@@ -235,7 +235,7 @@ function addTaiwanStraitPolygon() {
     },
   });
 }
-
+// never called - TODO: delete if not needed
 function removeTaiwanStraitPolygon() {
   if (map.getLayer("taiwanStrait")) {
     map.removeLayer("taiwanStrait");
