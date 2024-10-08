@@ -132,6 +132,10 @@ var lastEnteredChapter = null;
 var lastExitedChapter = null;
 
 map.on("load", function () {
+  // Automatically start the line animation on map load
+  startLineAnimation();
+
+  // Scrolling control
   scroller
     .setup({
       step: ".step",
@@ -291,11 +295,6 @@ function removeLineAnimation() {
   geojson.features[0].geometry.coordinates = []; // Clear the coordinates
   progress = 0; // Reset progress
 }
-
-map.on("load", () => {
-  // Automatically start the line animation on map load
-  startLineAnimation();
-});
 
 //ADDING & REMOVING THE GIF's TITLE
 function gifTitle() {
