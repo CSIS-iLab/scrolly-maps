@@ -1,42 +1,79 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin:0;
+  padding:0;
   font-family: sans-serif;
-  background-color: #0d3d4d;
+  background-color:#0D3D4D;
   text-align: center;
   font-family: "Source Sans 3", sans-serif;
-  font-size: 1.129em;
+  font-size: 1.1em;        
+}
+a, a:hover, a:visited {
+  color: #0071bc;
 }
 #map {
-  top: 0;
+  top:0;
   height: 100vh;
-  width: 100vw;
+  width:100vw;
   position: fixed;
 }
 .marker {
-  background-image: url("https://res.cloudinary.com/csisideaslab/image/upload/v1728324136/Comp_1__00000-00024__1.gif");
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
+background-image: url('https://res.cloudinary.com/csisideaslab/image/upload/v1728324136/Comp_1__00000-00024__1.gif');
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+#mapInset {
+  bottom:50px;
+  right:30px;
+  height: 180px;
+  width:250px;
+  max-width:100%;
+  position: fixed;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+#mapInset .mapboxgl-ctrl-bottom-left{
+  display: none;
+}
+@media (max-width: 500px) {
+  #mapInset {
+      display: none;
+  }
 }
 #header {
-  margin: auto;
-  width: 50%;
+  margin-left: 50vw;
+  margin-top: 50vh;
+  max-width: 40%;
   position: relative;
   z-index: 5;
-  background-color: transparent;
-  font-size: 1.4em;
+  background-color:transparent;
+  font-size: 1.6em;
   text-shadow: 2px 2px 25px #000000;
 }
-#header h1,
-#header h2,
-#header p {
+#header h1, #header h2, #header p {
   margin: 0;
   padding: 2vh 2vw;
   margin-top: 35vh;
+  text-align: right;
+}
+p {
+  font-size: 1.5em;
+}
+#footer {
+  width: 100%;
+  min-height: 5vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   text-align: center;
+  line-height: 25px;
+  font-size: 13px;
+  position: relative;
+  z-index: 5;
+  display:none;
 }
 #features {
   padding-top: 10vh;
@@ -61,13 +98,19 @@ body {
   width: 100%;
   margin: auto;
 }
+.light {
+  color: #444;
+  background-color: #0D3D4D;
+  border-radius:25px;
+}
 .dark {
   color: #fafafa;
-  background-color: #0d3d4d;
-  border-radius: 25px;
+  background-color: #0D3D4D;
+  border-radius:25px;
 }
 .step {
   padding-bottom: 100vh;
+  /* margin-bottom: 10vh; */
   opacity: 0.25;
 }
 .step.active {
@@ -75,27 +118,46 @@ body {
 }
 
 .step div {
-  padding: 25px 50px;
+  padding:  25px 50px;
   line-height: 25px;
+  font-size: 13px;
 }
 
 .step img {
   width: 100%;
 }
 
+.style-popup .mapboxgl-popup-content {
+  background-color: rgb(1, 1, 1, 0);
+  box-shadow:none;
+  color: black; 
+  width:75vw;
+  border-radius:15px;
+  text-align:left;
+
+}
+
+.style-popup .mapboxgl-popup-tip {
+  border-top-color: rgb(1,1,1,0);
+shadow:rgb(1,1,1,0);
+}
+
 @media (max-width: 750px) {
-  .centered,
-  .lefty,
-  .righty,
-  .fully {
-    width: 90vw;
-    margin: 0 auto;
+  .centered, .lefty, .righty, .fully {
+      width: 90vw;
+      margin: 0 auto;
+  }
+}
+
+@media (min-width: 750px) {
+  .centered, .lefty, .righty, .fully {
+      width: 40vw;
+      margin: 0 auto;
   }
 }
 
 /* Fix issue on mobile browser where scroll breaks  */
 .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
-.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan
-  .mapboxgl-canvas {
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
   touch-action: unset;
 }

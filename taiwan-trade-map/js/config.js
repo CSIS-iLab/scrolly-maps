@@ -1,22 +1,22 @@
 var config = {
-  style: "mapbox://styles/ilabmedia/cm20qkfka002n01p3dtxu5mim",
+  style: "mapbox://styles/ilabmedia/cm20sxqce004501nx0ahf02oh",
   accessToken:
     "pk.eyJ1IjoiaWxhYm1lZGlhIiwiYSI6ImNpbHYycXZ2bTAxajZ1c2tzdWU1b3gydnYifQ.AHxl8pPZsjsqoz95-604nw",
-  showMarkers: true,
-  markerColor: "#3FB1CE",
   projection: "globe",
   inset: false,
   theme: "dark",
-  use3dTerrain: true,
+  use3dTerrain: false,
   auto: false,
-  title: "How much Trade Transit the Taiwan Strait?",
+  title:
+    "Crossroad of Commerce: How the Taiwan Strait Propels the Global Economy",
   alignment: "right",
   chapters: [
     {
-      id: "first-chapter",
+      /* ---------------------- chapter0 ---------------------- */
+      id: "chapter0",
       alignment: "center",
       hidden: true,
-      title: "Slide 1",
+      title: "",
       image: "",
       description: "",
       location: {
@@ -27,27 +27,35 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "addPolygonLayer",
+      callback: "first_callback",
       onChapterEnter: [
+          {
+            layer: "trade_lines",
+            opacity: 0,
+          },
         {
-          layer: "trade_lines",
+          layer: "teal_lines_taiwan_red",
           opacity: 0,
         },
       ],
       onChapterExit: [
         {
           layer: "trade_lines",
+          opacity: 1,
+        },
+        {
+          layer: "teal_lines_taiwan_red",
           opacity: 0,
         },
       ],
     },
+    /* ---------------------- chapter1 ---------------------- */
     {
-      id: "second-chapter",
+      id: "chapter1",
       alignment: "center",
       hidden: false,
-      title: false,
-      image: "",
-      description: "Maritime trade is the lifeblood of the global economy.",
+      description:
+        'Maritime trade is the <span style="color:#14E2F7;">lifeblood</span> of the global economy.',
       location: {
         center: [120.74709, 23.97749],
         zoom: 2.5,
@@ -57,11 +65,14 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "spinGlobe",
-      callback: "removePolygonLayer",
+      callback: "second_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
+          opacity: 1,
+        },
+        {
+          layer: "teal_lines_taiwan_red",
           opacity: 0,
         },
       ],
@@ -70,18 +81,21 @@ var config = {
           layer: "trade_lines",
           opacity: 1,
         },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
+        },
       ],
     },
+    /* ---------------------- chapter2 ---------------------- */
     {
-      id: "third-chapter",
+      id: "chapter2",
       alignment: "center",
       hidden: false,
-      title: false,
-      image: "",
       description:
         "Each year, thousands of massive containerships and tankers ferry more than $10 trillion in goods and energy across the world’s oceans.",
       location: {
-        center: [120.74709, 23.97749],
+        center: [],
         zoom: 2.5,
         pitch: 0,
         bearing: 0.0,
@@ -89,45 +103,15 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "addTaiwanStraitPolygon",
-      callback: "spinGlobe",
+      callback: "third_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
           opacity: 1,
         },
-      ],
-      onChapterExit: [
         {
-          layer: "trade_lines",
-          opacity: 1,
-          callback: "stopGlobeSpin",
-          callback: "showPointers",
-        },
-      ],
-    },
-    {
-      id: "fourth-chapter",
-      alignment: "fully",
-      hidden: false,
-      title: false,
-      image: "",
-      description:
-        "These vessels follow well-established routes that converge at strategic chokepoints where maritime traffic is especially vulnerable to disruption.",
-      location: {
-        center: [54.20712, 13.29486],
-        zoom: 2,
-        pitch: 0,
-        bearing: 0,
-        speed: 0.5,
-      },
-      mapAnimation: "flyTo",
-      rotateAnimation: false,
-      callback: "stopGlobeSpin",
-      onChapterEnter: [
-        {
-          layer: "trade_lines",
-          opacity: 1,
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
         },
       ],
       onChapterExit: [
@@ -135,18 +119,21 @@ var config = {
           layer: "trade_lines",
           opacity: 1,
         },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
+        },
       ],
     },
+    /* ---------------------- chapter3 ---------------------- */
     {
-      id: "fifth-chapter",
+      id: "chapter3",
       alignment: "fully",
       hidden: false,
-      title: false,
-      image: "",
       description:
-        "Asia’s geography, and its centrality to global commerce, have heightened the importance of chokepoints like the Strait of Malacca and, increasingly, the Taiwan Strait.",
+        'These vessels follow well-established routes that converge at <span style="color:#F75D55;">strategic chokepoints</span> where maritime traffic is especially vulnerable to disruption.',
       location: {
-        center: [120.74709, 23.97749],
+        center: [62.84218, 8.59877],
         zoom: 2.5,
         pitch: 0,
         bearing: 0,
@@ -154,11 +141,53 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "",
+      callback: "fourth_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
           opacity: 1,
+        },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
+        },
+      ],
+      onChapterExit: [
+        {
+          layer: "trade_lines",
+          opacity: 1,
+        },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
+        },
+      ],
+    },
+    /* ---------------------- chapter4 ---------------------- */
+    {
+      id: "chapter4",
+      alignment: "fully",
+      hidden: false,
+      description:
+        "Asia’s geography, and its centrality to global commerce, have heightened the importance of chokepoints like the Strait of Malacca and, increasingly, the Taiwan Strait.",
+      location: {
+        center: [120.74709, 23.97749],
+        zoom: 3.5,
+        pitch: 0,
+        bearing: 0,
+        speed: 0.5,
+      },
+      mapAnimation: "flyTo",
+      rotateAnimation: false,
+      callback: "fifth_callback",
+      onChapterEnter: [
+        {
+          layer: "trade_lines",
+          opacity: 1,
+        },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
         },
       ],
       onChapterExit: [
@@ -166,18 +195,21 @@ var config = {
           layer: "trade_lines",
           opacity: 0,
         },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
+        },
       ],
     },
+    /* ---------------------- chapter5 ---------------------- */
     {
-      id: "sixth-chapter",
+      id: "chapter5",
       alignment: "fully",
       hidden: false,
-      title: false,
-      image: "",
       description:
         "China’s rising assertiveness has sparked fears that it may soon use force to bring Taiwan under its control.<br><br>While a major conflict over Taiwan would have catastrophic consequences for the global economy, less severe actions taken by Beijing would also destabilize trade through the Taiwan Strait.",
       location: {
-        center: [120.74709, 23.97749],
+        center: [118.40205, 23.79216],
         zoom: 6.5,
         pitch: 0,
         bearing: 0,
@@ -185,28 +217,33 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "addRadarLayer",
+      callback: "sixth_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
           opacity: 0,
-          callback: "addRadarLayer",
+        },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 0,
         },
       ],
       onChapterExit: [
         {
           layer: "trade_lines",
           opacity: 0,
-          callback: "removeRadarLayer",
+        },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 1,
         },
       ],
     },
+    /* ---------------------- chapter6 ---------------------- */
     {
-      id: "seventh-chapter",
+      id: "chapter6",
       alignment: "fully",
       hidden: false,
-      title: false,
-      image: "",
       description:
         "New research from CSIS estimates that approximately $2.45 trillion worth of goods—over one-fifth of global maritime trade—transited the Taiwan Strait in 2022.<br><br>Disruptions to this trade would send shockwaves well beyond Taiwan and China, impacting key U.S. allies and broad swaths of the Global South.",
       location: {
@@ -218,16 +255,24 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "removeRadarLayer",
+      callback: "sevent_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
           opacity: 0,
         },
+        {
+          layer: "teal_lines_taiwan_red",
+          opacity: 1,
+        },
       ],
       onChapterExit: [
         {
           layer: "trade_lines",
+          opacity: 0,
+        },
+        {
+          layer: "teal_lines_taiwan_red",
           opacity: 0,
         },
       ],
