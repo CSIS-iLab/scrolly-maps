@@ -297,23 +297,6 @@ map.on("load", () => {
   startLineAnimation();
 });
 
-//REMOVING THE START POLYGON
-
-function removeTaiwanStraitPolygon() {
-  // Check if both layers exist and remove them
-  if (map.getLayer("taiwanStrait")) {
-    map.removeLayer("taiwanStrait");
-  }
-  if (map.getLayer("outline")) {
-    map.removeLayer("outline");
-  }
-
-  // Remove the source after layers are removed
-  if (map.getSource("taiwanStrait")) {
-    map.removeSource("taiwanStrait");
-  }
-}
-
 //ADDING & REMOVING THE GIF's TITLE
 function gifTitle() {
   const popup = new mapboxgl.Popup({
