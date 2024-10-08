@@ -15,7 +15,7 @@ var config = {
   byline: "",
   chapters: [
     {
-      id: "slug-style-id",
+      id: "first-chapter",
       alignment: "center",
       hidden: true,
       title: "Slide 1",
@@ -44,7 +44,7 @@ var config = {
       ],
     },
     {
-      id: "second-identifier",
+      id: "second-chapter",
       alignment: "center",
       hidden: false,
       title: false,
@@ -75,7 +75,7 @@ var config = {
       ],
     },
     {
-      id: "third-identifier",
+      id: "third-chapter",
       alignment: "center",
       hidden: false,
       title: false,
