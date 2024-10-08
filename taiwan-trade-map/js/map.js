@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(headerTitle.innerText);
 });
 
-var initLoad = true;
 var layerTypes = {
   fill: ["fill-opacity"],
   line: ["line-opacity"],
