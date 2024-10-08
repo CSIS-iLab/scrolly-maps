@@ -5,7 +5,7 @@ const geojson_pointers = {
       type: "Feature",
       properties: {},
       geometry: {
-        coordinates: [56.48880982607736, 26.614282223383185],
+        coordinates: [56.48880982607736, 26.614282223383185], // Strait of Hormuz
         type: "Point",
       },
     },
@@ -13,7 +13,7 @@ const geojson_pointers = {
       type: "Feature",
       properties: {},
       geometry: {
-        coordinates: [43.40841353751088, 12.55224960147953],
+        coordinates: [43.40841353751088, 12.55224960147953], // Bab al-Mandab Strait
         type: "Point",
       },
     },
@@ -21,7 +21,7 @@ const geojson_pointers = {
       type: "Feature",
       properties: {},
       geometry: {
-        coordinates: [32.53357081010077, 30.084823864162303],
+        coordinates: [32.53357081010077, 30.084823864162303], // Suez, Egypt
         type: "Point",
       },
     },
@@ -29,7 +29,7 @@ const geojson_pointers = {
       type: "Feature",
       properties: {},
       geometry: {
-        coordinates: [101.27816953215915, 2.493127863055591],
+        coordinates: [101.27816953215915, 2.493127863055591], // Malacca Strait
         type: "Point",
       },
     },
