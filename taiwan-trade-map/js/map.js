@@ -282,8 +282,13 @@ function addRadarLayer() {
   // Start the image sequence update (GIF animation)
   const gifInterval = setInterval(() => {
     currentImage = (currentImage + 1) % frameCount;
-    map.getSource("radar").updateImage({ url: getPath() });
+    if (map.getSource("radar")) {
+      const currentGifUrl = getPath();
+      console.log("Current GIF URL:", currentGifUrl); // Log the current GIF URL
+      map.getSource("radar").updateImage({ url: currentGifUrl });
+    }
   }, 500); // Update image every 200ms
+
 }
 
 //REMOVING THE GIF
@@ -338,8 +343,12 @@ function addPolygonLayer() {
   // Start the image sequence update (GIF animation)
   const gifInterval_second = setInterval(() => {
     currentImage_second = (currentImage_second + 1) % frameCount_second;
-    map.getSource("polygon").updateImage({ url: getPath_second() });
-  }, 500); // Update image every 200ms
+    if (map.getSource("polygon")) {
+      const currentGifUrl = getPath_second();
+      console.log("Current GIF URL:", currentGifUrl); // Log the current GIF URL
+      map.getSource("polygon").updateImage({ url: currentGifUrl });
+    }
+  }, 500); // Update image every 500ms
 }
 
 //REMOVING THE GIF

@@ -1,5 +1,5 @@
 var config = {
-  style: "mapbox://styles/ilabmedia/cm1qz0uqh00wg01p63as5gfip",
+  style: "mapbox://styles/ilabmedia/cm20qkfka002n01p3dtxu5mim",
   accessToken:
     "pk.eyJ1IjoiaWxhYm1lZGlhIiwiYSI6ImNpbHYycXZ2bTAxajZ1c2tzdWU1b3gydnYifQ.AHxl8pPZsjsqoz95-604nw",
   showMarkers: true,
