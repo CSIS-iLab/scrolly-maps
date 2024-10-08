@@ -115,6 +115,7 @@ var map = new mapboxgl.Map({
   projection: config.projection,
 });
 
+// Where markers on map are coming from
 if (config.showMarkers) {
   var marker = new mapboxgl.Marker({ color: config.markerColor });
   marker.setLngLat(config.chapters[0].location.center).addTo(map);
@@ -131,7 +132,6 @@ function addTaiwanStraitPolygon() {
       type: "Feature",
       geometry: {
         type: "Polygon",
-        // These coordinates outline Maine.
         coordinates: [
           [
             [119.34324822801551, 21.31892348266993],
