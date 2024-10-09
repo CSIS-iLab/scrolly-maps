@@ -204,6 +204,7 @@ map.on("load", function () {
         if (chapter.id === "chapter5") {
           addRadarLayer();
           addGIFstroke();
+          gifTitle();
           removePulsingDotLayer_Taiwan();
         }
 
@@ -229,67 +230,6 @@ map.on("load", function () {
 /* ------------------------------------------------------ */
 /*                    Custom Functions                    */
 /* ------------------------------------------------------ */
-
-function removeGifTitle() {
-  const popups = document.getElementsByClassName("mapboxgl-popup");
-  if (popups.length) {
-    popups[0].remove(); // Remove the first popup (or target the specific one if needed)
-  }
-}
-
-//ADDING THE GIF BORDER
-function addGIFstroke() {
-  map.addSource("gifstroke", {
-    type: "geojson",
-    data: {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
-            [113.211, 25.782],
-            [123.213, 25.782],
-            [123.213, 21.579],
-            [113.211, 21.579],
-            [
-              113.211,
-              25.782, // Close the polygon (repeat first point)
-            ],
-          ],
-        ],
-      },
-    },
-  });
-
-  // Add a teal outline around the polygon.
-  map.addLayer({
-    id: "gifstroke",
-    type: "line",
-    source: "gifstroke",
-    layout: {},
-    paint: {
-      "line-color": "#68f7a3",
-      "line-width": 5,
-    },
-  });
-}
-
-//REMOVING THE GIF BORDER
-function removeGIFstroke() {
-  // Check if both layers exist and remove them
-  if (map.getLayer("gifstroke")) {
-    map.removeLayer("gifstroke");
-  }
-  if (map.getLayer("gifstroke")) {
-    map.removeLayer("gifstroke");
-  }
-
-  // Remove the source after layers are removed
-  if (map.getSource("gifstroke")) {
-    map.removeSource("gifstroke");
-  }
-}
-
 // ADDING ANIMATED MARKERS
 function addPulsingDots() {
   const size = 150;
@@ -503,61 +443,5 @@ function removePulsingDotLayer_Taiwan() {
   // Check if the source exists before attempting to remove it
   if (map.getSource("dot-point")) {
     map.removeSource("dot-point");
-  }
-}
-
-// ADDING THE GIF
-
-const frameCount = 12;
-let currentImage = 1;
-
-function getPath() {
-  return `https://res.cloudinary.com/csisideaslab/image/upload/v1728321858/New_gif${currentImage}.png`;
-}
-
-function addRadarLayer() {
-  // Check if the source already exists before adding it
-  if (!map.getSource("radar")) {
-    map.addSource("radar", {
-      type: "image",
-      url: getPath(),
-      coordinates: [
-        [113.211, 25.782],
-        [123.213, 25.782],
-        [123.213, 21.579],
-        [113.211, 21.579],
-      ],
-    });
-  }
-
-  // Check if the layer already exists before adding it
-  if (!map.getLayer("radar-layer")) {
-    map.addLayer({
-      id: "radar-layer",
-      type: "raster",
-      source: "radar",
-      paint: {
-        "raster-fade-duration": 2,
-      },
-    });
-  }
-
-  // Start the image sequence update (GIF animation)
-  const gifInterval = setInterval(() => {
-    currentImage = (currentImage + 1) % frameCount;
-    map.getSource("radar").updateImage({ url: getPath() });
-  }, 500); // Update image every 200ms
-}
-
-//REMOVING THE GIF
-function removeRadarLayer() {
-  // Check if the layer exists before attempting to remove it
-  if (map.getLayer("radar-layer")) {
-    map.removeLayer("radar-layer");
-  }
-
-  // Check if the source exists before attempting to remove it
-  if (map.getSource("radar")) {
-    map.removeSource("radar");
   }
 }
