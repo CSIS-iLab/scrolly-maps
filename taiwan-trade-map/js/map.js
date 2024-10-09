@@ -124,6 +124,53 @@ var map = new mapboxgl.Map({
 });
 
 /* ------------------------------------------------------ */
+/*              zoom and location for mobile              */
+/* ------------------------------------------------------ */
+// Track whether we're on mobile
+let isMobile = window.matchMedia("(max-width: 750px)").matches;
+
+function updateChapterLocations(isMobile) {
+  console.log("mobile");
+  config.chapters.forEach((chapter) => {
+    if (isMobile) {
+      if (chapter.id === "chapter0") {
+        chapter.location.center = [120.77621, 23.62328];
+      }
+      if (chapter.id === "chapter1") {
+        chapter.location.center = [120.77621, 23.62328];
+      }
+      if (chapter.id === "chapter2") {
+        chapter.location.zoom = 6.5;
+        chapter.location.center = [121.01047, 23.84028];
+      }
+      if (chapter.id === "chapter3") {
+        chapter.location.zoom = 6.8;
+        chapter.location.center = [120.23559, 22.5935];
+      }
+      if (chapter.id === "chapter4") {
+        chapter.location.zoom = 6.8;
+        chapter.location.center = [120.56382, 22.52218];
+      }
+      if (chapter.id === "chapter5") {
+        chapter.location.zoom = 7.5;
+        chapter.location.center = [120.24817, 24.04383];
+      }
+      if (chapter.id === "chapter6") {
+        chapter.location.zoom = 6.66;
+        chapter.location.center = [120.24417, 23.52269];
+      }
+    }
+  });
+}
+
+// check for mobile width to update chapter locations
+const mediaQueryChapters = window.matchMedia("(max-width: 750px)");
+mediaQueryChapters.addEventListener("change", (e) => {
+  updateChapterLocations(e.matches);
+});
+updateChapterLocations(mediaQueryChapters.matches);
+
+/* ------------------------------------------------------ */
 /*      Scrolly part of map - enter and exit behavior     */
 /* ------------------------------------------------------ */
 var scroller = scrollama();
@@ -186,43 +233,82 @@ map.on("load", function () {
         }
 
         /* ------- add and remove based on chapter ------ */
-        if (chapter.id === "chapter0") {
-          startLineAnimation();
-          stopGlobeSpin();
-        }
+        if (isMobile) {
+          if (chapter.id === "chapter0") {
+            startLineAnimation();
+            stopGlobeSpin();
+          }
 
-        if (chapter.id === "chapter1") {
-          spinGlobe();
-          removePulsingDotLayer();
-          removeLineAnimation();
-        }
+          if (chapter.id === "chapter1") {
+            spinGlobe();
+            removePulsingDotLayer();
+            removeLineAnimation();
+          }
 
-        if (chapter.id === "chapter2") {
-          removePulsingDotLayer();
-        }
+          if (chapter.id === "chapter2") {
+            removePulsingDotLayer();
+          }
 
-        if (chapter.id === "chapter3") {
-          stopGlobeSpin();
-          addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
-        }
-        if (chapter.id === "chapter4") {
-          removeRadarLayer();
-          removePulsingDotLayer();
-          removeGIFstroke();
-          removeGifTitle();
-        }
+          if (chapter.id === "chapter3") {
+            stopGlobeSpin();
+            addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
+          }
+          if (chapter.id === "chapter4") {
+            removeRadarLayer();
+            removePulsingDotLayer();
+            removeGIFstroke();
+            removeGifTitle();
+          }
+          if (chapter.id === "chapter5") {
+            addRadarLayer();
+            addGIFstroke();
+            gifTitle();
+            removePulsingDotLayer();
+          }
+          if (chapter.id === "chapter6") {
+            removeRadarLayer();
+            removeGIFstroke();
+            removeGifTitle();
+            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
+          }
+        } else {
+          if (chapter.id === "chapter0") {
+            startLineAnimation();
+            stopGlobeSpin();
+          }
 
-        if (chapter.id === "chapter5") {
-          addRadarLayer();
-          addGIFstroke();
-          gifTitle();
-          removePulsingDotLayer();
-        }
-        if (chapter.id === "chapter6") {
-          removeRadarLayer();
-          removeGIFstroke();
-          removeGifTitle();
-          addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
+          if (chapter.id === "chapter1") {
+            spinGlobe();
+            removePulsingDotLayer();
+            removeLineAnimation();
+          }
+
+          if (chapter.id === "chapter2") {
+            removePulsingDotLayer();
+          }
+
+          if (chapter.id === "chapter3") {
+            stopGlobeSpin();
+            addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
+          }
+          if (chapter.id === "chapter4") {
+            removeRadarLayer();
+            removePulsingDotLayer();
+            removeGIFstroke();
+            removeGifTitle();
+          }
+          if (chapter.id === "chapter5") {
+            addRadarLayer();
+            addGIFstroke();
+            gifTitle();
+            removePulsingDotLayer();
+          }
+          if (chapter.id === "chapter6") {
+            removeRadarLayer();
+            removeGIFstroke();
+            removeGifTitle();
+            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
+          }
         }
       }
     })
