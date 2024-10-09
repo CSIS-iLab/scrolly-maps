@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const headerTitle = document.querySelector("#header h1");
   headerTitle.innerHTML =
-    "Crossroad of Commerce: <br><span style='font-size:0.6em; font-weight: 400; line-height:10%;'>How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy<hr></span><div style='font-size:0.3em; font-weight: 400; line-height:1.2em; font-family: Jost, sans-serif;'>Part 3 of a ChinaPower series</div><div style='font-size:0.25em; font-weight: 300; line-height:3em; font-family: Jost, sans-serif; margin-top: -5px;'>October 10, 2024</div>";
+    "Crossroads of Commerce: <br><span style='font-size:0.6em; font-weight: 400; line-height:10%;'>How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy<hr></span><div style='font-size:0.3em; font-weight: 400; line-height:1.2em; font-family: Jost, sans-serif;'>Part 3 of a ChinaPower series</div><div style='font-size:0.25em; font-weight: 300; line-height:3em; font-family: Jost, sans-serif; margin-top: -5px;'>October 10, 2024</div>";
   console.log(headerTitle.innerText);
 });
 
