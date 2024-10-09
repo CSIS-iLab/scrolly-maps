@@ -131,6 +131,18 @@ var scroller = scrollama();
 var lastEnteredChapter = null;
 var lastExitedChapter = null;
 
+// Coordinate arrays for pulsing dots
+const pulsingDotsCoordinatesChapter3 = [
+  [56.48880982607736, 26.614282223383185],
+  [43.40841353751088, 12.55224960147953],
+  [32.53357081010077, 30.084823864162303],
+  [101.27816953215915, 2.493127863055591],
+];
+
+const pulsingDotsCoordinatesTaiwan = [
+  [119.57893, 24.44004],
+];
+
 map.on("load", function () {
   // Automatically start the line animation on map load
   if (window.scrollY === 0) {
@@ -193,9 +205,8 @@ map.on("load", function () {
 
         if (chapter.id === "chapter3") {
           stopGlobeSpin();
-          addPulsingDots();
+          addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
         }
-
         if (chapter.id === "chapter4") {
           removeRadarLayer();
           removePulsingDotLayer();
@@ -207,14 +218,13 @@ map.on("load", function () {
           addRadarLayer();
           addGIFstroke();
           gifTitle();
-          removePulsingDotLayer_Taiwan();
+          removePulsingDotLayer();
         }
-
         if (chapter.id === "chapter6") {
           removeRadarLayer();
           removeGIFstroke();
           removeGifTitle();
-          addPulsingDots_Taiwan();
+          addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
         }
       }
     })
@@ -228,222 +238,3 @@ map.on("load", function () {
       }
     });
 });
-
-/* ------------------------------------------------------ */
-/*                    Custom Functions                    */
-/* ------------------------------------------------------ */
-// ADDING ANIMATED MARKERS
-function addPulsingDots() {
-  const size = 150;
-
-  // This implements `StyleImageInterface` to draw a pulsing dot icon on the map.
-  const pulsingDot = {
-    width: size,
-    height: size,
-    data: new Uint8Array(size * size * 4),
-
-    // When the layer is added to the map, get the rendering context for the map canvas.
-    onAdd: function () {
-      const canvas = document.createElement("canvas");
-      canvas.width = this.width;
-      canvas.height = this.height;
-      this.context = canvas.getContext("2d");
-    },
-
-    // Call once before every frame where the icon will be used.
-    render: function () {
-      const duration = 1000;
-      const t = (performance.now() % duration) / duration;
-
-      const radius = (size / 2) * 0.3;
-      const outerRadius = (size / 2) * 0.7 * t + radius;
-      const context = this.context;
-
-      // Draw the outer circle.
-      context.clearRect(0, 0, this.width, this.height);
-      context.beginPath();
-      context.arc(this.width / 2, this.height / 2, outerRadius, 0, Math.PI * 2);
-      context.fillStyle = `rgba(247, 93, 85, ${1 - t})`;
-      context.fill();
-
-      // Draw the inner circle.
-      context.beginPath();
-      context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
-      context.fillStyle = "rgba(247, 93, 85, 0.3)";
-      context.strokeStyle = "white";
-      context.lineWidth = 2 + 2 * (1 - t);
-      context.fill();
-      context.stroke();
-
-      // Update this image's data with data from the canvas.
-      this.data = context.getImageData(0, 0, this.width, this.height).data;
-
-      // Continuously repaint the map for smooth animation.
-      map.triggerRepaint();
-
-      return true; // Inform the map that the image was updated.
-    },
-  };
-
-  // Add pulsing dots to the map
-  map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
-
-  map.addSource("dot-point", {
-    type: "geojson",
-    data: {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            coordinates: [56.48880982607736, 26.614282223383185],
-            type: "Point",
-          },
-        },
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            coordinates: [43.40841353751088, 12.55224960147953],
-            type: "Point",
-          },
-        },
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            coordinates: [32.53357081010077, 30.084823864162303],
-            type: "Point",
-          },
-        },
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            coordinates: [101.27816953215915, 2.493127863055591],
-            type: "Point",
-          },
-        },
-      ],
-    },
-  });
-
-  map.addLayer({
-    id: "layer-with-pulsing-dot",
-    type: "symbol",
-    source: "dot-point",
-    layout: {
-      "icon-image": "pulsing-dot",
-    },
-  });
-}
-
-//REMOVING ANIMATED MARKERS
-function removePulsingDotLayer() {
-  // Check if the layer exists before attempting to remove it
-  if (map.getLayer("layer-with-pulsing-dot")) {
-    map.removeLayer("layer-with-pulsing-dot");
-  }
-
-  // Check if the source exists before attempting to remove it
-  if (map.getSource("dot-point")) {
-    map.removeSource("dot-point");
-  }
-}
-
-// ADDING ANIMATED MARKERS for TAIWAN LAST PARAGRAPH
-function addPulsingDots_Taiwan() {
-  const size = 250;
-
-  // This implements `StyleImageInterface` to draw a pulsing dot icon on the map.
-  const pulsingDot = {
-    width: size,
-    height: size,
-    data: new Uint8Array(size * size * 4),
-
-    // When the layer is added to the map, get the rendering context for the map canvas.
-    onAdd: function () {
-      const canvas = document.createElement("canvas");
-      canvas.width = this.width;
-      canvas.height = this.height;
-      this.context = canvas.getContext("2d");
-    },
-
-    // Call once before every frame where the icon will be used.
-    render: function () {
-      const duration = 1000;
-      const t = (performance.now() % duration) / duration;
-
-      const radius = (size / 2) * 0.3;
-      const outerRadius = (size / 2) * 0.7 * t + radius;
-      const context = this.context;
-
-      // Draw the outer circle.
-      context.clearRect(0, 0, this.width, this.height);
-      context.beginPath();
-      context.arc(this.width / 2, this.height / 2, outerRadius, 0, Math.PI * 2);
-      context.fillStyle = `rgba(247, 93, 85, ${1 - t})`;
-      context.fill();
-
-      // Draw the inner circle.
-      context.beginPath();
-      context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
-      context.fillStyle = "rgba(247, 93, 85, 0.3)";
-      context.strokeStyle = "white";
-      context.lineWidth = 2 + 2 * (1 - t);
-      context.fill();
-      context.stroke();
-
-      // Update this image's data with data from the canvas.
-      this.data = context.getImageData(0, 0, this.width, this.height).data;
-
-      // Continuously repaint the map for smooth animation.
-      map.triggerRepaint();
-
-      return true; // Inform the map that the image was updated.
-    },
-  };
-
-  // Add pulsing dots to the map
-  map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
-
-  map.addSource("dot-point", {
-    type: "geojson",
-    data: {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          properties: {},
-          geometry: {
-            coordinates: [119.57893, 24.44004],
-            type: "Point",
-          },
-        },
-      ],
-    },
-  });
-
-  map.addLayer({
-    id: "layer-with-pulsing-dot",
-    type: "symbol",
-    source: "dot-point",
-    layout: {
-      "icon-image": "pulsing-dot",
-    },
-  });
-}
-
-//REMOVING ANIMATED MARKERS for TAIWAN LAST PARAGRAPH
-function removePulsingDotLayer_Taiwan() {
-  // Check if the layer exists before attempting to remove it
-  if (map.getLayer("layer-with-pulsing-dot")) {
-    map.removeLayer("layer-with-pulsing-dot");
-  }
-
-  // Check if the source exists before attempting to remove it
-  if (map.getSource("dot-point")) {
-    map.removeSource("dot-point");
-  }
-}
