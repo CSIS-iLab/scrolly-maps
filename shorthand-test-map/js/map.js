@@ -668,7 +668,7 @@ let currentImage = 1;
 
 function getPath() {
   return `https://res.cloudinary.com/csisideaslab/image/upload/v1728509826/New_gif${currentImage}.png`;
-}
+} 
 
 function addRadarLayer() {
   // Check if the source already exists before adding it
