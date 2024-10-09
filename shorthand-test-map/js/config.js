@@ -95,7 +95,7 @@ var config = {
       description:
         "Each year, thousands of massive containerships and tankers ferry more than $11.5 trillion in goods and energy across the world’s oceans.",
       location: {
-        center: [-74.40313, 36.01018],
+        center: [120.74709, 23.97749],
         zoom: 2.5,
         pitch: 0,
         bearing: 0.0,
