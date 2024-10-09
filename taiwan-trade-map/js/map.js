@@ -58,7 +58,7 @@ if (header.innerText.length > 0) {
   story.appendChild(header);
 }
 
-// Rest of story 
+// Rest of story
 var features = document.createElement("div");
 features.setAttribute("id", "features");
 story.appendChild(features);
@@ -171,6 +171,49 @@ map.on("load", function () {
         }
         if (chapter.callback) {
           window[chapter.callback]();
+        }
+
+        /* ------- add and remove based on chapter ------ */
+        if (chapter.id === "chapter0") {
+          startLineAnimation();
+          animateLine();
+          stopGlobeSpin();
+        }
+
+        if (chapter.id === "chapter1") {
+          spinGlobe();
+          removePulsingDotLayer();
+          removeLineAnimation();
+        }
+
+        if (chapter.id === "chapter2") {
+          removePulsingDotLayer();
+        }
+
+        if (chapter.id === "chapter3") {
+          stopGlobeSpin();
+          addPulsingDots();
+        }
+
+        if (chapter.id === "chapter4") {
+          removeRadarLayer();
+          removePulsingDotLayer();
+          removeGIFstroke();
+          removeGifTitle();
+        }
+
+        if (chapter.id === "chapter5") {
+          addRadarLayer();
+          addGIFstroke();
+          gifTitle();
+          removePulsingDotLayer_Taiwan();
+        }
+
+        if (chapter.id === "chapter6") {
+          removeRadarLayer();
+          removeGIFstroke();
+          removeGifTitle();
+          addPulsingDots_Taiwan();
         }
       }
     })
@@ -671,50 +714,4 @@ function spinGlobe() {
 
 function stopGlobeSpin() {
   clearInterval(spinInterval); // Stops the spinning by clearing the interval
-}
-
-//COMBINED FUNCTIONS!
-
-//Combined functions for page load/first scroll
-function first_callback() {
-  startLineAnimation();
-  animateLine();
-  stopGlobeSpin();
-}
-
-//Combined functions for spin + remove poligon
-function second_callback() {
-  spinGlobe();
-  removePulsingDotLayer();
-  removeLineAnimation();
-}
-
-function third_callback() {
-  removePulsingDotLayer();
-}
-
-function fourth_callback() {
-  stopGlobeSpin();
-  addPulsingDots();
-}
-
-function fifth_callback() {
-  removeRadarLayer();
-  removePulsingDotLayer();
-  removeGIFstroke();
-  removeGifTitle();
-}
-
-function sixth_callback() {
-  addRadarLayer();
-  addGIFstroke();
-  gifTitle();
-  removePulsingDotLayer_Taiwan();
-}
-
-function sevent_callback() {
-  removeRadarLayer();
-  removeGIFstroke();
-  removeGifTitle();
-  addPulsingDots_Taiwan();
 }

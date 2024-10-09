@@ -27,7 +27,6 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "first_callback",
       onChapterEnter: [
           {
             layer: "trade_lines",
@@ -65,7 +64,6 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "second_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
@@ -103,7 +101,6 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "third_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
@@ -141,7 +138,6 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "fourth_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
@@ -179,7 +175,6 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "fifth_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
@@ -217,7 +212,6 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "sixth_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
@@ -255,7 +249,6 @@ var config = {
       },
       mapAnimation: "flyTo",
       rotateAnimation: false,
-      callback: "sevent_callback",
       onChapterEnter: [
         {
           layer: "trade_lines",
