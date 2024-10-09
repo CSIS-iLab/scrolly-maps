@@ -8,7 +8,7 @@ var config = {
   use3dTerrain: false,
   auto: false,
   title:
-    "Crossroad of Commerce: How the Taiwan Strait Propels the Global Economy",
+    "Crossroads of Commerce: How the Taiwan Strait Propels the Global Economy",
   alignment: "right",
   chapters: [
     {
