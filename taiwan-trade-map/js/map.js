@@ -175,8 +175,6 @@ map.on("load", function () {
 
         /* ------- add and remove based on chapter ------ */
         if (chapter.id === "chapter0") {
-          startLineAnimation();
-          animateLine();
           stopGlobeSpin();
         }
 
@@ -287,8 +285,7 @@ function startLineAnimation() {
 
 // Animation function
 function animateLine() {
-  const numSegments = polygonCoordinates.length - 1;
-  const totalDistance = numSegments; // total number of segments
+  const totalDistance = polygonCoordinates.length - 1;
   const segmentProgress = (progress * speedFactor) % totalDistance; // progress through segments
 
   const currentSegmentIndex = Math.floor(segmentProgress);
