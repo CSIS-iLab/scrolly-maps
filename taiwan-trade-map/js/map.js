@@ -133,7 +133,9 @@ var lastExitedChapter = null;
 
 map.on("load", function () {
   // Automatically start the line animation on map load
-  startLineAnimation();
+  if (window.scrollY === 0) {
+    startLineAnimation();
+  }
 
   // Scrolling control
   scroller
