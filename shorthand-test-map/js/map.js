@@ -667,7 +667,7 @@ const frameCountMobile = 12;
 let currentImage = 1;
 
 function getPath() {
-  return `https://res.cloudinary.com/csisideaslab/image/upload/v1728503753/New_gif${currentImage}.png`;
+  return `https://res.cloudinary.com/csisideaslab/image/upload/v1728509826/New_gif${currentImage}.png`;
 }
 
 function addRadarLayer() {
