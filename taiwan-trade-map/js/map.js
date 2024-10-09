@@ -204,7 +204,6 @@ map.on("load", function () {
         if (chapter.id === "chapter5") {
           addRadarLayer();
           addGIFstroke();
-          gifTitle();
           removePulsingDotLayer_Taiwan();
         }
 
@@ -230,20 +229,6 @@ map.on("load", function () {
 /* ------------------------------------------------------ */
 /*                    Custom Functions                    */
 /* ------------------------------------------------------ */
-
-//ADDING & REMOVING THE GIF's TITLE
-function gifTitle() {
-  const popup = new mapboxgl.Popup({
-    closeOnClick: false,
-    closeButton: false,
-    className: "style-popup",
-  })
-    .setLngLat([114.8, 24.9489])
-    .setHTML(
-      '<h1 style="font-size:2.8em;">Marittime Traffic Timelapse, 2023</h1>'
-    )
-    .addTo(map);
-}
 
 function removeGifTitle() {
   const popups = document.getElementsByClassName("mapboxgl-popup");
