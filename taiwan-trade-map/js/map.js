@@ -285,13 +285,6 @@ function startLineAnimation() {
   }
 }
 
-function interpolatePoints(start, end, t) {
-  return [
-    start[0] + (end[0] - start[0]) * t,
-    start[1] + (end[1] - start[1]) * t,
-  ];
-}
-
 // Animation function
 function animateLine() {
   const numSegments = polygonCoordinates.length - 1;
@@ -305,11 +298,10 @@ function animateLine() {
   if (nextSegmentIndex < polygonCoordinates.length) {
     const startPoint = polygonCoordinates[currentSegmentIndex];
     const endPoint = polygonCoordinates[nextSegmentIndex];
-    const interpolatedPoint = interpolatePoints(
-      startPoint,
-      endPoint,
-      segmentFraction
-    );
+    const interpolatedPoint = [
+      startPoint[0] + (endPoint[0] - startPoint[0]) * segmentFraction,
+      startPoint[1] + (endPoint[1] - startPoint[1]) * segmentFraction,
+    ];
 
     geojson.features[0].geometry.coordinates.push(interpolatedPoint);
     map.getSource("line").setData(geojson);
