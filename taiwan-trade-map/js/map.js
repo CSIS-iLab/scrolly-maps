@@ -175,6 +175,7 @@ map.on("load", function () {
 
         /* ------- add and remove based on chapter ------ */
         if (chapter.id === "chapter0") {
+          startLineAnimation();
           stopGlobeSpin();
         }
 
@@ -229,104 +230,6 @@ map.on("load", function () {
 /* ------------------------------------------------------ */
 /*                    Custom Functions                    */
 /* ------------------------------------------------------ */
-
-//ADDING THE POLYGON ANIMATION
-const polygonCoordinates = [
-  [119.7732, 25.8095],
-  [121.0269, 25.0782],
-  [119.9757, 23.5835],
-  [118.5919, 24.4556],
-  [119.7732, 25.8095], // Closing the polygon
-];
-
-let geojson = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "LineString",
-        coordinates: [],
-      },
-    },
-  ],
-};
-
-const speedFactor = 0.03; // Adjust for speed
-let animation;
-let progress = 0; // track progress through the points
-
-// Function to start the line animation
-function startLineAnimation() {
-  if (!map.getSource("line")) {
-    map.addSource("line", {
-      type: "geojson",
-      data: geojson,
-    });
-
-    map.addLayer({
-      id: "line-animation",
-      type: "line",
-      source: "line",
-      layout: {
-        "line-cap": "round",
-        "line-join": "round",
-      },
-      paint: {
-        "line-color": "#68f7a3",
-        "line-width": 6,
-        "line-opacity": 1,
-      },
-    });
-
-    animateLine();
-  }
-}
-
-// Animation function
-function animateLine() {
-  const totalDistance = polygonCoordinates.length - 1;
-  const segmentProgress = (progress * speedFactor) % totalDistance; // progress through segments
-
-  const currentSegmentIndex = Math.floor(segmentProgress);
-  const nextSegmentIndex = currentSegmentIndex + 1;
-  const segmentFraction = segmentProgress - currentSegmentIndex;
-
-  if (nextSegmentIndex < polygonCoordinates.length) {
-    const startPoint = polygonCoordinates[currentSegmentIndex];
-    const endPoint = polygonCoordinates[nextSegmentIndex];
-    const interpolatedPoint = [
-      startPoint[0] + (endPoint[0] - startPoint[0]) * segmentFraction,
-      startPoint[1] + (endPoint[1] - startPoint[1]) * segmentFraction,
-    ];
-
-    geojson.features[0].geometry.coordinates.push(interpolatedPoint);
-    map.getSource("line").setData(geojson);
-
-    progress += 1; // Adjust based on speed
-  } else {
-    // Reset once the polygon path is complete
-    geojson.features[0].geometry.coordinates = [];
-    progress = 0;
-  }
-
-  animation = requestAnimationFrame(animateLine);
-}
-
-// Function to remove the line animation and stop the animation
-function removeLineAnimation() {
-  if (animation) {
-    cancelAnimationFrame(animation); // Stop the animation
-  }
-  if (map.getLayer("line-animation")) {
-    map.removeLayer("line-animation"); // Remove the layer
-  }
-  if (map.getSource("line")) {
-    map.removeSource("line"); // Remove the source
-  }
-  geojson.features[0].geometry.coordinates = []; // Clear the coordinates
-  progress = 0; // Reset progress
-}
 
 //ADDING & REMOVING THE GIF's TITLE
 function gifTitle() {
@@ -672,35 +575,4 @@ function removeRadarLayer() {
   if (map.getSource("radar")) {
     map.removeSource("radar");
   }
-}
-
-//SPIN GLOBE & STOP SPIN
-
-function spinGlobe() {
-  const secondsPerRevolution = 220;
-  // Above zoom level 5, do not rotate.
-  const maxSpinZoom = 5;
-  // Rotate at intermediate speeds between zoom levels 3 and 5.
-  const slowSpinZoom = 3;
-  let userInteracting = false;
-  spinInterval = setInterval(() => {
-    const zoom = map.getZoom();
-    if (!userInteracting && zoom < maxSpinZoom) {
-      let distancePerSecond = 2600 / secondsPerRevolution;
-      if (zoom > slowSpinZoom) {
-        // Slow spinning at higher zoom levels
-        const zoomDif = (maxSpinZoom - zoom) / (maxSpinZoom - slowSpinZoom);
-        distancePerSecond *= zoomDif;
-      }
-      const center = map.getCenter();
-      center.lng -= distancePerSecond;
-
-      // Smooth animation to spin the globe
-      map.easeTo({ center, duration: 1000, easing: (n) => n });
-    }
-  }, 1000); // Repeat every second for smooth spinning
-}
-
-function stopGlobeSpin() {
-  clearInterval(spinInterval); // Stops the spinning by clearing the interval
 }
