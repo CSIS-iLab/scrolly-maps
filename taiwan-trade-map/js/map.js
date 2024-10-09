@@ -139,9 +139,7 @@ const pulsingDotsCoordinatesChapter3 = [
   [101.27816953215915, 2.493127863055591],
 ];
 
-const pulsingDotsCoordinatesTaiwan = [
-  [119.57893, 24.44004],
-];
+const pulsingDotsCoordinatesTaiwan = [[119.57893, 24.44004]];
 
 map.on("load", function () {
   // Automatically start the line animation on map load
