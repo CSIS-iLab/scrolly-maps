@@ -69,7 +69,7 @@ var config = {
       onChapterEnter: [
         {
           layer: "trade_lines",
-          opacity: 1,
+          opacity: 0,
         },
         {
           layer: "teal_lines_taiwan_red",
@@ -79,7 +79,7 @@ var config = {
       onChapterExit: [
         {
           layer: "trade_lines",
-          opacity: 1,
+          opacity: 0,
         },
         {
           layer: "teal_lines_taiwan_red",
@@ -107,7 +107,7 @@ var config = {
       onChapterEnter: [
         {
           layer: "trade_lines",
-          opacity: 1,
+          opacity: 0,
         },
         {
           layer: "teal_lines_taiwan_red",
@@ -117,7 +117,7 @@ var config = {
       onChapterExit: [
         {
           layer: "trade_lines",
-          opacity: 1,
+          opacity: 0,
         },
         {
           layer: "teal_lines_taiwan_red",
@@ -145,7 +145,7 @@ var config = {
       onChapterEnter: [
         {
           layer: "trade_lines",
-          opacity: 1,
+          opacity: 0,
         },
         {
           layer: "teal_lines_taiwan_red",
@@ -155,7 +155,7 @@ var config = {
       onChapterExit: [
         {
           layer: "trade_lines",
-          opacity: 1,
+          opacity: 0,
         },
         {
           layer: "teal_lines_taiwan_red",
