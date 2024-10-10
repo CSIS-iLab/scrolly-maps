@@ -140,7 +140,7 @@ function updateChapterLocations(isMobile) {
         chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter2") {
-        chapter.location.center = [-74.40313, 36.01018];
+        chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter3") {
         chapter.location.center = [55.08519, 15.37462];
