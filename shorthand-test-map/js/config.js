@@ -121,7 +121,7 @@ var config = {
         },
         {
           layer: "teal_lines_taiwan_red",
-          opacity: 0,
+          opacity: 1,
         },
       ],
     },
@@ -149,7 +149,7 @@ var config = {
         },
         {
           layer: "teal_lines_taiwan_red",
-          opacity: 0,
+          opacity: 1,
         },
       ],
       onChapterExit: [
