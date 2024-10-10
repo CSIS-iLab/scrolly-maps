@@ -3,8 +3,7 @@ mapboxgl.accessToken = config.accessToken;
 // Sets the title text - using config.js doesn't allow using a span in the text, which we need for styling.
 document.addEventListener("DOMContentLoaded", function () {
   const headerTitle = document.querySelector("#header h1");
-  headerTitle.innerHTML =
-    `Crossroads of Commerce: <br><span id="subtitle">How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy<hr></span><div id="description">Part 3 of a ChinaPower series</div><div id="date">October 10, 2024</div>`;
+  headerTitle.innerHTML = `Crossroads of Commerce: <br><span id="subtitle">How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy<hr></span><div id="description">Part 3 of a ChinaPower series</div><div id="date">October 10, 2024</div>`;
   console.log(headerTitle.innerText);
 });
 
@@ -227,58 +226,27 @@ map.on("load", function () {
         }
 
         /* ------- add and remove based on chapter ------ */
-        if (isMobile) {
-          if (chapter.id === "chapter0") {
-            startLineAnimation();
-          }
-
-          if (chapter.id === "chapter1") {
-            removePulsingDotLayer();
-            removeLineAnimation();
-          }
-
-          if (chapter.id === "chapter2") {
-            removePulsingDotLayer();
-          }
-
-          if (chapter.id === "chapter3") {
-            addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
-          }
-          if (chapter.id === "chapter4") {
-            removePulsingDotLayer();
-          }
-          if (chapter.id === "chapter5") {
-            removePulsingDotLayer();
-          }
-          if (chapter.id === "chapter6") {
-            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
-          }
-        } else {
-          if (chapter.id === "chapter0") {
-            startLineAnimation();
-          }
-
-          if (chapter.id === "chapter1") {
-            removePulsingDotLayer();
-            removeLineAnimation();
-          }
-
-          if (chapter.id === "chapter2") {
-            removePulsingDotLayer();
-          }
-
-          if (chapter.id === "chapter3") {
-            addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
-          }
-          if (chapter.id === "chapter4") {
-            removePulsingDotLayer();
-          }
-          if (chapter.id === "chapter5") {
-            removePulsingDotLayer();
-          }
-          if (chapter.id === "chapter6") {
-            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
-          }
+        if (chapter.id === "chapter0") {
+          startLineAnimation();
+        }
+        if (chapter.id === "chapter1") {
+          removePulsingDotLayer();
+          removeLineAnimation();
+        }
+        if (chapter.id === "chapter2") {
+          removePulsingDotLayer();
+        }
+        if (chapter.id === "chapter3") {
+          addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
+        }
+        if (chapter.id === "chapter4") {
+          removePulsingDotLayer();
+        }
+        if (chapter.id === "chapter5") {
+          removePulsingDotLayer();
+        }
+        if (chapter.id === "chapter6") {
+          addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
         }
       }
     })
