@@ -230,11 +230,9 @@ map.on("load", function () {
         if (isMobile) {
           if (chapter.id === "chapter0") {
             startLineAnimation();
-            stopGlobeSpin();
           }
 
           if (chapter.id === "chapter1") {
-            spinGlobe();
             removePulsingDotLayer();
             removeLineAnimation();
           }
@@ -244,7 +242,6 @@ map.on("load", function () {
           }
 
           if (chapter.id === "chapter3") {
-            stopGlobeSpin();
             addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
           }
           if (chapter.id === "chapter4") {
@@ -268,11 +265,9 @@ map.on("load", function () {
         } else {
           if (chapter.id === "chapter0") {
             startLineAnimation();
-            stopGlobeSpin();
           }
 
           if (chapter.id === "chapter1") {
-            spinGlobe();
             removePulsingDotLayer();
             removeLineAnimation();
           }
@@ -282,7 +277,6 @@ map.on("load", function () {
           }
 
           if (chapter.id === "chapter3") {
-            stopGlobeSpin();
             addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
           }
           if (chapter.id === "chapter4") {
