@@ -63,7 +63,6 @@ var features = document.createElement("div");
 features.setAttribute("id", "features");
 story.appendChild(features);
 
-// config for future refactor - from blockade maps
 config.chapters.forEach((record, idx) => {
   var container = document.createElement("div");
   var chapter = document.createElement("div");
