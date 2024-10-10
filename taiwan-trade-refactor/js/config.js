@@ -168,7 +168,7 @@ var config = {
         'Asia’s geography, and its centrality to global commerce, have heightened the importance of chokepoints like the Strait of Malacca and, increasingly, the <span style="color:#F75D55;">Taiwan Strait.</span>',
       location: {
         center: [120.74709, 23.97749],
-        zoom: 3,
+        zoom: 4,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
