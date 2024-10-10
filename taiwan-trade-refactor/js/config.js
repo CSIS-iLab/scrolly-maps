@@ -57,7 +57,7 @@ var config = {
         'Maritime trade is the <span style="color:#14E2F7;">lifeblood</span> of the global economy.',
       location: {
         center: [120.74709, 23.97749],
-        zoom: 2.5,
+        zoom: 4,
         pitch: 0,
         bearing: 0,
         speed: 1,
@@ -94,7 +94,7 @@ var config = {
         "Each year, thousands of massive containerships and tankers ferry more than $11.5 trillion in goods and energy across the world’s oceans.",
       location: {
         center: [120.74709, 23.97749],
-        zoom: 2.5,
+        zoom: 4,
         pitch: 0,
         bearing: 0.0,
         speed: 1,
@@ -131,7 +131,7 @@ var config = {
         'These vessels follow well-established routes that converge at <span style="color:#F75D55;">strategic chokepoints</span> where maritime traffic is especially vulnerable to disruption.',
       location: {
         center: [65.47443, 1.41163],
-        zoom: 2.5,
+        zoom: 3,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
@@ -168,7 +168,7 @@ var config = {
         'Asia’s geography, and its centrality to global commerce, have heightened the importance of chokepoints like the Strait of Malacca and, increasingly, the <span style="color:#F75D55;">Taiwan Strait.</span>',
       location: {
         center: [120.74709, 23.97749],
-        zoom: 3.5,
+        zoom: 3,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
@@ -205,7 +205,7 @@ var config = {
         "China’s rising assertiveness has sparked fears that it may soon use force to bring Taiwan under its control.<br><br>While a major conflict over Taiwan would have catastrophic consequences for the global economy, less severe actions taken by Beijing would also destabilize trade through the Taiwan Strait.",
       location: {
         center: [120.58214, 24.01651],
-        zoom: 6,
+        zoom: 3,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
@@ -242,7 +242,7 @@ var config = {
         "New research from CSIS estimates that approximately $2.45 trillion worth of goods—over one-fifth of global maritime trade—transited the Taiwan Strait in 2022.<br><br>Disruptions to this trade would send shockwaves well beyond Taiwan and China, impacting key U.S. allies and broad swaths of the Global South.",
       location: {
         center: [120.74709, 23.97749],
-        zoom: 3.5,
+        zoom: 3,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
