@@ -193,6 +193,7 @@ p {
 shadow:rgb(1,1,1,0);
 }
 
+/* ----- Default media queries for textbox alignment ---- */
 @media (max-width: 750px) {
   .centered, .righty, .fully {
       width: 90vw;
