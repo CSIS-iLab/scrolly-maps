@@ -127,30 +127,31 @@ function updateChapterLocations(isMobile) {
   config.chapters.forEach((chapter) => {
     if (isMobile) {
       if (chapter.id === "chapter0") {
-        chapter.location.center = [120.77621, 23.62328];
+        chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter1") {
-        chapter.location.center = [120.77621, 23.62328];
+        chapter.location.zoom = 3.5;
+        chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter2") {
-        chapter.location.zoom = 6.5;
-        chapter.location.center = [121.01047, 23.84028];
+        chapter.location.zoom = 3.5;
+        chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter3") {
-        chapter.location.zoom = 6.8;
-        chapter.location.center = [120.23559, 22.5935];
+        chapter.location.zoom = 3.5;
+        chapter.location.center = [106.85556, 5.91993];
       }
       if (chapter.id === "chapter4") {
-        chapter.location.zoom = 6.8;
-        chapter.location.center = [120.56382, 22.52218];
+        chapter.location.zoom = 4.2;
+        chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter5") {
-        chapter.location.zoom = 7.5;
-        chapter.location.center = [120.24817, 24.04383];
+        chapter.location.zoom = 4.2;
+        chapter.location.center = [120.58214, 24.01651];
       }
       if (chapter.id === "chapter6") {
-        chapter.location.zoom = 6.66;
-        chapter.location.center = [120.24417, 23.52269];
+        chapter.location.zoom = 4.2;
+        chapter.location.center = [120.74709, 23.97749];
       }
     }
   });
