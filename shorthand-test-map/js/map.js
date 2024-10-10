@@ -776,9 +776,9 @@ function fifth_callback() {
 }
 
 function sixth_callback() {
-  
+  addRadarLayer();
   removePulsingDotLayer();
- 
+  addGIFstroke();
   removePulsingDotLayer_Taiwan();
 }
 
