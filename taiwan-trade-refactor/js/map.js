@@ -256,9 +256,10 @@ map.on("load", function () {
           }
           if (chapter.id === "chapter5") {
             removePulsingDotLayer();
+            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
           }
           if (chapter.id === "chapter6") {
-            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
+            
           }
         } else {
           if (chapter.id === "chapter0") {
@@ -282,9 +283,10 @@ map.on("load", function () {
           }
           if (chapter.id === "chapter5") {
             removePulsingDotLayer();
+            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
           }
           if (chapter.id === "chapter6") {
-            addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
+            
           }
         }
       }
