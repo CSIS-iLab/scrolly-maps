@@ -247,18 +247,12 @@ map.on("load", function () {
             addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
           }
           if (chapter.id === "chapter4") {
-            removeRadarLayer();
             removePulsingDotLayer();
-            removeGIFstroke();
           }
           if (chapter.id === "chapter5") {
-            addRadarLayer();
-            addGIFstroke();;
             removePulsingDotLayer();
           }
           if (chapter.id === "chapter6") {
-            removeRadarLayer();
-            removeGIFstroke();
             addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
           }
         } else {
