@@ -1,13 +1,12 @@
 mapboxgl.accessToken = config.accessToken;
 
-// Sets the title text - using config.js doesn't allow using a span in the text, which we need to change the color of 'Taiwan Strait'. Need to wrap in the event listener to ensure the DOM is loaded before changing the text, otherwise the text will be undefined and this won't work.
+// Sets the title text - using config.js doesn't allow using a span in the text, which we need for styling.
 document.addEventListener("DOMContentLoaded", function () {
   const headerTitle = document.querySelector("#header h1");
   headerTitle.innerHTML =
     `Crossroads of Commerce: <br><span id="subtitle">How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy<hr></span><div id="description">Part 3 of a ChinaPower series</div><div id="date">October 10, 2024</div>`;
   console.log(headerTitle.innerText);
 });
-
 
 var layerTypes = {
   fill: ["fill-opacity"],
