@@ -1,16 +1,16 @@
 // Constants
 const GIF_COORDINATES = [
-  [113.211, 25.782],
-  [123.213, 25.782],
-  [123.213, 21.579],
-  [113.211, 21.579],
+  [118.1592, 26.6334],
+  [122.9168, 26.6334],
+  [122.9168, 21.5939],
+  [118.1592, 21.5939],
 ];
 const FRAME_COUNT = 12;
 const FRAME_DURATION = 500; // ms
 const GIF_TITLE = 'Maritime Traffic Timelapse, 2023';
 const GIF_TITLE_COORDINATES = [114.8, 24.9489];
 
-const getImagePath = (frame) => `https://res.cloudinary.com/csisideaslab/image/upload/v1728321858/New_gif${frame}.png`;
+const getImagePath = (frame) => `https://res.cloudinary.com/csisideaslab/image/upload/v1728503753/New_gif${frame}.png`;
 
 let gifInterval = null;
 
@@ -45,7 +45,13 @@ function addGIFstroke() {
       type: "Feature",
       geometry: {
         type: "Polygon",
-        coordinates: [GIF_COORDINATES.concat([GIF_COORDINATES[0]])],
+        coordinates: [
+          [118.1457, 25.8013], // Top-left
+          [122.9034, 25.8013], // Top-right
+          [122.9168, 21.5939], // Bottom-right
+          [118.1592, 21.5939], // Bottom-left
+          [118.1457, 25.8013]  // Closing the loop (same as top-left)
+        ],
       },
     },
   });
