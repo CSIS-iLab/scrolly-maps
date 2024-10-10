@@ -754,7 +754,6 @@ function stopGlobeSpin() {
 function first_callback() {
   startLineAnimation();
   animateLine();
-  stopGlobeSpin();
 }
 
 //Combined functions for spin + remove poligon
