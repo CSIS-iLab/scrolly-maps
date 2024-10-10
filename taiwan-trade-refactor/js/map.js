@@ -73,12 +73,6 @@ config.chapters.forEach((record, idx) => {
     chapter.appendChild(title);
   }
 
-  if (record.image) {
-    var image = new Image();
-    image.src = record.image;
-    chapter.appendChild(image);
-  }
-
   if (record.description) {
     var story = document.createElement("p");
     story.innerHTML = record.description;
