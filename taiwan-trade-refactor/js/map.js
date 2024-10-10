@@ -4,7 +4,7 @@ mapboxgl.accessToken = config.accessToken;
 document.addEventListener("DOMContentLoaded", function () {
   const headerTitle = document.querySelector("#header h1");
   headerTitle.innerHTML =
-    "Crossroad of Commerce: How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy";
+    "Crossroad of Commerce: <br><span style='font-size:0.6em; font-weight: 400; line-height:10%;'>How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy<hr></span><div style='font-size:0.3em; font-weight: 400; line-height:1.2em; font-family: Jost, sans-serif;'>Part 3 of a ChinaPower series</div><div style='font-size:0.25em; font-weight: 300; line-height:3em; font-family: Jost, sans-serif; margin-top: -5px;'>October 10, 2024</div>";
   console.log(headerTitle.innerText);
 });
 
@@ -152,7 +152,7 @@ function updateChapterLocations(isMobile) {
         chapter.location.center = [120.56382, 22.52218];
       }
       if (chapter.id === "chapter5") {
-        chapter.location.zoom = 7.5;
+        chapter.location.zoom = 8;
         chapter.location.center = [120.24817, 24.04383];
       }
       if (chapter.id === "chapter6") {
@@ -198,7 +198,7 @@ map.on("load", function () {
   scroller
     .setup({
       step: ".step",
-      offset: 0.5,
+      offset: 1,
       progress: true,
     })
     .onStepEnter(async (response) => {
@@ -236,11 +236,9 @@ map.on("load", function () {
         if (isMobile) {
           if (chapter.id === "chapter0") {
             startLineAnimation();
-            stopGlobeSpin();
           }
 
           if (chapter.id === "chapter1") {
-            spinGlobe();
             removePulsingDotLayer();
             removeLineAnimation();
           }
@@ -250,35 +248,29 @@ map.on("load", function () {
           }
 
           if (chapter.id === "chapter3") {
-            stopGlobeSpin();
             addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
           }
           if (chapter.id === "chapter4") {
             removeRadarLayer();
             removePulsingDotLayer();
             removeGIFstroke();
-            removeGifTitle();
           }
           if (chapter.id === "chapter5") {
             addRadarLayer();
-            addGIFstroke();
-            gifTitle();
+            addGIFstroke();;
             removePulsingDotLayer();
           }
           if (chapter.id === "chapter6") {
             removeRadarLayer();
             removeGIFstroke();
-            removeGifTitle();
             addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
           }
         } else {
           if (chapter.id === "chapter0") {
             startLineAnimation();
-            stopGlobeSpin();
           }
 
           if (chapter.id === "chapter1") {
-            spinGlobe();
             removePulsingDotLayer();
             removeLineAnimation();
           }
@@ -288,25 +280,19 @@ map.on("load", function () {
           }
 
           if (chapter.id === "chapter3") {
-            stopGlobeSpin();
             addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
           }
           if (chapter.id === "chapter4") {
             removeRadarLayer();
             removePulsingDotLayer();
-            removeGIFstroke();
-            removeGifTitle();
           }
           if (chapter.id === "chapter5") {
             addRadarLayer();
-            addGIFstroke();
-            gifTitle();
+            addGIFstroke();;
             removePulsingDotLayer();
           }
           if (chapter.id === "chapter6") {
             removeRadarLayer();
-            removeGIFstroke();
-            removeGifTitle();
             addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
           }
         }
