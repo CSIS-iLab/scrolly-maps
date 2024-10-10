@@ -205,7 +205,7 @@ var config = {
     {
       id: "chapter5",
       alignment: "fully",
-      image:'https://res.cloudinary.com/csisideaslab/image/upload/v1728515305/New_gif-_neutral_2.gif',
+      image:'',
       hidden: false,
       description:
         "China’s rising assertiveness has sparked fears that it may soon use force to bring Taiwan under its control.<br><br>While a major conflict over Taiwan would have catastrophic consequences for the global economy, less severe actions taken by Beijing would also destabilize trade through the Taiwan Strait.",
