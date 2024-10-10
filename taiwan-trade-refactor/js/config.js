@@ -2,7 +2,7 @@ var config = {
   style: "mapbox://styles/ilabmedia/cm1qz0uqh00wg01p63as5gfip",
   accessToken:
     "pk.eyJ1IjoiaWxhYm1lZGlhIiwiYSI6ImNpbHYycXZ2bTAxajZ1c2tzdWU1b3gydnYifQ.AHxl8pPZsjsqoz95-604nw",
-  projection: "globe",
+  projection: "mercator",
   inset: false,
   theme: "dark",
   use3dTerrain: false,
@@ -93,7 +93,7 @@ var config = {
       description:
         "Each year, thousands of massive containerships and tankers ferry more than $11.5 trillion in goods and energy across the world’s oceans.",
       location: {
-        center: [-92.57474, 33.38031],
+        center: [120.74709, 23.97749],
         zoom: 2.5,
         pitch: 0,
         bearing: 0.0,
