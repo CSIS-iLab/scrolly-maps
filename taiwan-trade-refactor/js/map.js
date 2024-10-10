@@ -245,21 +245,12 @@ map.on("load", function () {
             addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
           }
           if (chapter.id === "chapter4") {
-            removeRadarLayer();
             removePulsingDotLayer();
-            removeGIFstroke();
-            removeGifTitle();
           }
           if (chapter.id === "chapter5") {
-            addRadarLayer();
-            addGIFstroke();
-            gifTitle();
             removePulsingDotLayer();
           }
           if (chapter.id === "chapter6") {
-            removeRadarLayer();
-            removeGIFstroke();
-            removeGifTitle();
             addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
           }
         } else {
@@ -280,21 +271,12 @@ map.on("load", function () {
             addPulsingDots(pulsingDotsCoordinatesChapter3, 150); // Size for chapter 3
           }
           if (chapter.id === "chapter4") {
-            removeRadarLayer();
             removePulsingDotLayer();
-            removeGIFstroke();
-            removeGifTitle();
           }
           if (chapter.id === "chapter5") {
-            addRadarLayer();
-            addGIFstroke();
-            gifTitle();
             removePulsingDotLayer();
           }
           if (chapter.id === "chapter6") {
-            removeRadarLayer();
-            removeGIFstroke();
-            removeGifTitle();
             addPulsingDots(pulsingDotsCoordinatesTaiwan, 250); // Size for Taiwan
           }
         }
