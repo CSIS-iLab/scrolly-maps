@@ -140,19 +140,23 @@ function updateChapterLocations(isMobile) {
         chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter2") {
+        chapter.location.zoom = 4;
         chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter3") {
+        chapter.location.zoom = 4;
         chapter.location.center = [111.74206, 14.93303];
       }
       if (chapter.id === "chapter4") {
+        chapter.location.zoom = 4.5;
         chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter5") {
-        chapter.location.zoom = 6;
+        chapter.location.zoom = 3.5;
         chapter.location.center = [120.58214, 24.01651];
       }
       if (chapter.id === "chapter6") {
+        chapter.location.zoom = 3.5;
         chapter.location.center = [120.74709, 23.97749];
       }
     }
