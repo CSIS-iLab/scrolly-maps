@@ -111,7 +111,7 @@ p {
 .step {
   padding-bottom: 100vh;
   /* margin-bottom: 10vh; */
-  opacity: 0.25;
+  opacity: 0.9;
 }
 .step.active {
   opacity: 0.9;
