@@ -200,7 +200,7 @@ map.on("load", function () {
     .setup({
       step: ".step",
       offset: 1,
-      progress: true,
+      progress: false,
     })
     .onStepEnter(async (response) => {
       var current_chapter = config.chapters.findIndex(
