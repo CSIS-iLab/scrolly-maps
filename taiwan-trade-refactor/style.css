@@ -44,10 +44,10 @@ cursor: pointer;
       display: none;
   }
 }
-.step {
+/* .step {
   offset: 0 !important;
   opacity: 1 !important;
-}
+} */
 #header {
   margin-left: 30%;
   margin-right: 5%;
