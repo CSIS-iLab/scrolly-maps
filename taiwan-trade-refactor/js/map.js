@@ -137,6 +137,7 @@ function updateChapterLocations(isMobile) {
         chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter1") {
+        chapter.location.zoom = 3;
         chapter.location.center = [120.74709, 23.97749];
       }
       if (chapter.id === "chapter2") {
