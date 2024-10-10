@@ -1,14 +1,22 @@
+/* CSS Variables for color consistency */
+:root {
+  --primary-bg-color: #0D3D4D;
+  --link-color: #0071bc;
+  --text-light-color: #444;
+  --text-dark-color: #fafafa;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
 body {
   margin:0;
   padding:0;
-  font-family: sans-serif;
-  background-color:#0D3D4D;
+  background-color: var(--primary-bg-color);
   text-align: center;
-  font-family: "Source Sans 3", sans-serif;
+  font-family: "Jost", sans-serif;
   font-size: 1.1em;        
 }
 a, a:hover, a:visited {
-  color: #0071bc;
+  color: var(--link-color);
 }
 #map {
   top:0;
@@ -24,42 +32,91 @@ height: 50px;
 border-radius: 50%;
 cursor: pointer;
 }
-#mapInset {
-  bottom:50px;
-  right:30px;
-  height: 180px;
-  width:250px;
-  max-width:100%;
-  position: fixed;
-  z-index: 1;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: none;
-}
-#mapInset .mapboxgl-ctrl-bottom-left{
-  display: none;
-}
-@media (max-width: 500px) {
-  #mapInset {
-      display: none;
-  }
-}
+
 #header {
-  margin-left: 50vw;
-  margin-top: 50vh;
-  max-width: 40%;
+  margin: 55vh 5% 0 30%;
+  max-width: 80%;
   position: relative;
   z-index: 5;
-  background-color:transparent;
-  font-size: 1.6em;
-  text-shadow: 2px 2px 25px #000000;
+  font-family: "Teko", sans-serif;
+  background-color: transparent;
+  font-size: 2em;
+  line-height: 150%;
+  text-shadow: 1px 1px 45px var(--shadow-color);
 }
-#header h1, #header h2, #header p {
-  margin: 0;
-  padding: 2vh 2vw;
-  margin-top: 35vh;
-  text-align: right;
+
+#subtitle {
+  font-size:0.6em; 
+  font-weight: 400; 
+  line-height: 10%;
 }
+
+#description {
+  font-size:0.3em; 
+  font-weight: 400; 
+  line-height:1.2em; 
+  font-family: Jost, sans-serif;
+}
+
+#date {
+  font-size:0.25em; 
+  font-weight: 300; 
+  line-height:3em; 
+  font-family: Jost, sans-serif; 
+  margin-top: -5px;
+}
+
+/* ------------------------------------------------------ */
+/*   media queries for header - values from Shorthand  */
+/* ------------------------------------------------------ */
+/* Shorthand breakpoints: https://support.shorthand.com/en/articles/54-responsive-breakpoints */
+
+/* Extra small devices (XS, less than 620px) - default styles will apply */
+
+/* Small devices (Small, 620px and up) */
+@media (min-width: 620px) {
+  #header {
+    margin-left: 25%;
+    margin-right: 5%;
+    margin-top: 55vh;
+    font-size: 2.2em;
+  }
+}
+
+/* Medium devices (Medium, 900px and up) */
+@media (min-width: 900px) {
+  #header {
+    margin-left: 25%;
+    margin-top: 50vh;
+    font-size: 2.5em;
+  }
+}
+
+/* Large devices (Large, 1100px and up) */
+@media (min-width: 1100px) {
+  #header {
+    margin-left: 25%;
+    margin-top: 50vh;
+    font-size: 2.8em;
+    text-align: right;
+  }
+}
+
+/* Extra large devices (XL, 1400px and up) */
+@media (min-width: 1400px) {
+  #header {
+    margin-left: 25%;
+    margin-top: 50vh;
+    font-size: 3em;
+    line-height: 150%;
+    text-align: right;
+  }
+}
+
+/* Extra extra large devices (XXL, 1750px and up) */
+@media (min-width: 1750px) {
+}
+
 p {
   font-size: 1.5em;
 }

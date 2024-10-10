@@ -4,9 +4,10 @@ mapboxgl.accessToken = config.accessToken;
 document.addEventListener("DOMContentLoaded", function () {
   const headerTitle = document.querySelector("#header h1");
   headerTitle.innerHTML =
-    "Crossroad of Commerce: How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy";
+    `Crossroads of Commerce: <br><span id="subtitle">How the <span style='color:#68F7A3;'>Taiwan Strait </span>Propels the Global Economy<hr></span><div id="description">Part 3 of a ChinaPower series</div><div id="date">October 10, 2024</div>`;
   console.log(headerTitle.innerText);
 });
+
 
 var layerTypes = {
   fill: ["fill-opacity"],
