@@ -1,0 +1,161 @@
+.step {
+  padding-bottom: 50vh;
+  opacity: 0.25;
+}
+.step.active {
+  opacity: 0.9;
+}
+
+.step div {
+  line-height: 25px;
+  max-width: 350px;
+}
+
+.step > div > *:not(h2) {
+  background-color: #474f56;
+}
+
+.step > div > *:not(img):not(h2) {
+  padding: 0 0px;
+}
+​ .step > div > *:last-child:not(img) {
+  padding-bottom: 32px;
+}
+
+.step > .content > *:first-child:not(img):not(h2),
+.content h3 {
+  padding-top: 32px;
+}
+
+.step h2 {
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-weight: 400;
+  font-size: 24px;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+  transition: 0.5s opacity ease-in-out;
+  line-height: 1.2;
+}
+
+.step.active h2 {
+  opacity: 1;
+}
+
+.step h2:after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 0px;
+  background-color: #fff;
+  margin-top: 12px;
+  opacity: 0.4;
+  transition: 1s width ease-in-out;
+}
+
+.step.active h2:after {
+  width: 80px;
+  transition: 1s width ease-in-out;
+}
+
+.step h3.subtitle {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 12px;
+  line-height: auto;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 0.03rem;
+}
+​ .step h3 + img {
+  padding-top: 12px;
+}
+
+.step img {
+  width: 100%;
+  display: block;
+}
+
+/* Add legends */
+
+.step#states1990.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1579823137/trade-commission/states1990.png");
+}
+
+.step#states2018.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1579823137/trade-commission/states2018.png");
+}
+
+.step#counties200.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1579823333/trade-commission/counties200.png");
+}
+
+.step#counties100.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1579823682/trade-commission/counties100.png");
+}
+
+.step#counties100b.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1579823682/trade-commission/counties100.png");
+}
+
+.step#manuDecline3.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1581093633/trade-commission/counties1990a_v1.png");
+}
+
+.step#manuDecline4.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1581093640/trade-commission/counties2018a_v1.png");
+}
+
+.step#jobs13.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1579823871/trade-commission/frame9.png");
+}
+
+.step#growth.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1579823871/trade-commission/us_states_final.png");
+}
+
+.step#services5.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1580238209/trade-commission/frame5a_revise3.png");
+}
+
+.step#services6.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1580249765/trade-commission/frame5b_revise1.png");
+}
+
+.step#inDepth7.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1580249765/trade-commission/frame5b_revise1.png");
+  padding-bottom: 20px;
+}
+
+.step#inDepth10.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1580249765/trade-commission/frame5b_revise1.png");
+  padding-bottom: 10px;
+}
+
+.step#manuLoss1.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1580159581/trade-commission/frame11_1.png");
+  padding-bottom: 10px;
+}
+
+.step#brightSpots14.active:after {
+  content: url("https://res.cloudinary.com/csisideaslab/image/upload/v1580249899/trade-commission/frame7_revise.png");
+  padding-bottom: 10px;
+}
+
+.step:after {
+  display: block;
+  content: "";
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 32px;
+  right: 0;
+  opacity: 1;
+  transition: 600ms opacity ease-in-out;
+  padding-bottom: 50px;
+}
+
+.step.active:after {
+  opacity: 1;
+  transition: 600ms opacity ease-in-out;
+}
